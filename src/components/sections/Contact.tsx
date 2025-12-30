@@ -1,6 +1,6 @@
 import { FaEnvelope, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import { useState } from 'react';
-import { sendEmail } from '@/utils/emailjs';
+// import { sendEmail } from '@/utils/emailjs';
 
 type ContactContent = {
   title: string;
@@ -54,7 +54,7 @@ export default function Contact({ content }: Props) {
       return;
     }
     try {
-      await sendEmail(formData);
+      // await sendEmail(formData);
       setFormStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
