@@ -42,6 +42,9 @@ const Projects = ({ content }: Props) => {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  width="400"
+                  height="200"
                 />
                 <div className="absolute inset-0 bg-black/20 dark:bg-black/40" />
               </div>
@@ -55,22 +58,22 @@ const Projects = ({ content }: Props) => {
                 </div>
                 <div className="flex gap-4 mt-auto">
                   <a
-                    href="#"
+                    href={project.demo}
                     className="bg-indigo-600 text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-indigo-700 transition"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <FaExternalLinkAlt />
-                    {project.demo}
+                    Demo
                   </a>
                   <a
-                    href="#"
+                    href={project.code}
                     className="bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded flex items-center gap-2 hover:bg-gray-300 dark:hover:bg-gray-800 transition"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <FaGithub />
-                    {project.code}
+                    Code
                   </a>
                 </div>
               </div>

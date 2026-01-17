@@ -38,21 +38,71 @@ export default function Contact({ content }: Props) {
   });
 
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [formErrors, setFormErrors] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Form Data on submit:', formData);
-    // Trim inputs to avoid spaces-only values
-    if (
-      !formData.name.trim() ||
-      !formData.email.trim() ||
-      !formData.subject.trim() ||
-      !formData.message.trim()
-    ) {
-      console.log('Validation failed: some fields are empty or whitespace only');
+
+    // Reset errors
+    setFormErrors({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    });
+
+    // Validate each field
+    let hasErrors = false;
+    const newErrors = { ...formErrors };
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = content.name + ' é obrigatório';
+      hasErrors = true;
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = content.name + ' deve ter pelo menos 2 caracteres';
+      hasErrors = true;
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email é obrigatório';
+      hasErrors = true;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      newErrors.email = 'Por favor, insira um email válido';
+      hasErrors = true;
+    }
+
+    // Subject validation
+    if (!formData.subject.trim()) {
+      newErrors.subject = content.subject + ' é obrigatório';
+      hasErrors = true;
+    } else if (formData.subject.trim().length < 5) {
+      newErrors.subject = content.subject + ' deve ter pelo menos 5 caracteres';
+      hasErrors = true;
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = content.message + ' é obrigatório';
+      hasErrors = true;
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = content.message + ' deve ter pelo menos 10 caracteres';
+      hasErrors = true;
+    }
+
+    if (hasErrors) {
+      setFormErrors(newErrors);
       setFormStatus('error');
       return;
     }
+
     try {
       // await sendEmail(formData);
       setFormStatus('success');
@@ -106,38 +156,74 @@ export default function Contact({ content }: Props) {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{content.formTitle}</h3>
             <form className="flex flex-col gap-6" onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleSubmit(e)}>
               <div className="flex gap-4">
+              <div className="w-1/2 relative">
                 <input
                   type="text"
                   placeholder={content.namePlaceholder}
-                  className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-3 rounded-lg w-1/2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className={`bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 ${formErrors.name ? 'border border-red-500' : ''}`}
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
+                  aria-invalid={!!formErrors.name}
+                  aria-describedby={formErrors.name ? 'name-error' : undefined}
                 />
+                {formErrors.name && (
+                  <p id="name-error" className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0">
+                    {formErrors.name}
+                  </p>
+                )}
+              </div>
+              <div className="w-1/2 relative">
                 <input
                   type="email"
                   placeholder={content.emailPlaceholder}
-                  className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-3 rounded-lg w-1/2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className={`bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 ${formErrors.email ? 'border border-red-500' : ''}`}
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
+                  aria-invalid={!!formErrors.email}
+                  aria-describedby={formErrors.email ? 'email-error' : undefined}
                 />
+                {formErrors.email && (
+                  <p id="email-error" className="text-red-500 text-sm mt-1 absolute -bottom-5 left-0">
+                    {formErrors.email}
+                  </p>
+                )}
               </div>
-              <input
-                type="text"
-                placeholder={content.subjectPlaceholder}
-                className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                value={formData.subject}
-                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                required
-              />
-              <textarea
-                placeholder={content.messagePlaceholder}
-                className="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-3 rounded-lg w-full h-32 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                value={formData.message}
-                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                required
-              />
+              </div>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder={content.subjectPlaceholder}
+                  className={`bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-3 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-indigo-500 ${formErrors.subject ? 'border border-red-500' : ''}`}
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  required
+                  aria-invalid={!!formErrors.subject}
+                  aria-describedby={formErrors.subject ? 'subject-error' : undefined}
+                />
+                {formErrors.subject && (
+                  <p id="subject-error" className="text-red-500 text-sm mt-1">
+                    {formErrors.subject}
+                  </p>
+                )}
+              </div>
+              <div className="relative">
+                <textarea
+                  placeholder={content.messagePlaceholder}
+                  className={`bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-3 rounded-lg w-full h-32 resize-none focus:outline-none focus:ring-2 focus:ring-indigo-500 ${formErrors.message ? 'border border-red-500' : ''}`}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
+                  aria-invalid={!!formErrors.message}
+                  aria-describedby={formErrors.message ? 'message-error' : undefined}
+                />
+                {formErrors.message && (
+                  <p id="message-error" className="text-red-500 text-sm mt-1">
+                    {formErrors.message}
+                  </p>
+                )}
+              </div>
               <button
                 type="submit"
                 className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center gap-2 shadow hover:from-indigo-600 hover:to-purple-600 transition"

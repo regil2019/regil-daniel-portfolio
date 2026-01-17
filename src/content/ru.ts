@@ -1,128 +1,137 @@
-import type { Content } from '@/types';
+import type { Content } from '@/types'
 
 export const content: Content = {
   nav: {
-    home: "Главная",
-    about: "Обо мне",
-    projects: "Проекты",
-    skills: "Навыки",
-    contact: "Контакты"
+    home: 'Главная',
+    about: 'Обо мне',
+    projects: 'Проекты',
+    skills: 'Навыки',
+    contact: 'Контакты',
   },
+
   hero: {
-    title: "Привет, я",
-    subtitle: " Регил",
-    paragrath: "Инженер-программист, увлеченный созданием потрясающих цифровых решений и инновационных продуктов, которые меняют мир. Магистр программной инженерии, в настоящее время изучаю Full Stack-разработку и ИИ-агентов",
-    viewWork: "Посмотреть Мои Работы",
-    downloadCV: "Скачать Резюме",
-    image: "/image/regil.png"
+    title: 'Привет, я',
+    subtitle: 'Regil.',
+    paragrath:
+      'Инженер-программист, специализирующийся на создании современных, масштабируемых и готовых к продакшену веб-приложений. Магистр программной инженерии с практическим опытом Full Stack разработки и реальных проектов.',
+    viewWork: 'Посмотреть проекты',
+    downloadCV: 'Скачать CV',
+    image: '/image/regil.png',
   },
+
   about: {
-    title: "Обо мне",
-    description: "Я увлеченный инженер-программист с магистерской степенью в области инженерии программного обеспечения и более 2 лет опыта создания инновационных цифровых решений. В настоящее время изучаю курс Full Stack Open и Next.js, с планами углубиться в AI Agents и SaaS платформы.",
-    journey: "Мое путешествие",
-    journeyText: "Я начал свою карьеру как фронтенд-разработчик и развился до full-stack, работая над сложными проектами, которые позволили мне профессионально расти. В настоящее время я занимаюсь продвинутыми исследованиями в области AI Agents, SaaS платформ и современных веб-технологий. Сегодня я объединяю технические навыки с бизнес-видением для создания решений, которые положительно влияют на пользователей.",
+    title: 'Обо мне',
+    description:
+      'Я инженер-программист с магистерской степенью в области программной инженерии и более чем 2-летним опытом разработки современных веб-приложений. Специализируюсь на Full Stack разработке, оптимизации производительности и чистой архитектуре.',
+    journey: 'Мой путь',
+    journeyText:
+      'Я начал свою карьеру как frontend-разработчик и вырос до Full Stack, работая над реальными проектами, включая e-commerce платформы и бизнес-сайты. В настоящее время я углубляю знания в backend-разработке, облачных технологиях и архитектуре систем. Следующий шаг — внедрение AI-решений и разработка SaaS-продуктов для реальных задач.',
     sections: [
       {
-        title: "Full-Stack разработка",
-        description: "Полный опыт во фронтенде и бэкенде, создание надежных и масштабируемых приложений.",
-        icon: "FaCode"
+        title: 'Full Stack разработка',
+        description:
+          'Опыт работы с frontend и backend, создание масштабируемых и поддерживаемых приложений.',
+        icon: 'FaCode',
       },
       {
-        title: "Дизайн и UX",
-        description: "Фокус на создании интуитивно понятных интерфейсов и исключительного пользовательского опыта.",
-        icon: "FaPalette"
+        title: 'Дизайн и UX',
+        description:
+          'Создание понятных интерфейсов и качественного пользовательского опыта.',
+        icon: 'FaPalette',
       },
       {
-        title: "Производительность",
-        description: "Постоянная оптимизация для обеспечения быстрых и эффективных приложений.",
-        icon: "FaRocket"
+        title: 'Производительность',
+        description:
+          'Постоянная оптимизация для быстроты, эффективности и стабильности приложений.',
+        icon: 'FaRocket',
       },
       {
-        title: "Сотрудничество",
-        description: "Командная работа и эффективная коммуникация для достижения качественных результатов.",
-        icon: "FaUsers"
-      }
-    ]
+        title: 'Командная работа',
+        description:
+          'Эффективное взаимодействие и коммуникация для достижения качественных результатов.',
+        icon: 'FaUsers',
+      },
+    ],
   },
+
   projects: {
-    title: "Мои проекты",
-    subtitle: "Вот некоторые из проектов, которые я разработал, демонстрируя свои навыки и страсть к программированию.",
-    filterAll: "Все",
+    title: 'Проекты',
+    subtitle: 'Реальные приложения, разработанные и опубликованные',
+    filterAll: 'Все',
     projects: [
       {
-        category: "ИИ",
-        title: "Платформа SaaS с ИИ",
-        description: "Продвинутая SaaS платформа с AI агентами, построенная с использованием Next.js 15, React и Better Auth. Функции включают автоматизированные рабочие процессы, интеллектуальные чат-боты и аналитику в реальном времени.",
-        technologies: ["Next.js 15", "React", "Better Auth", "Polar", "AI Agents"],
-        demo: "Демо",
-        code: "Код",
-        image: '/image/ai-saas-bg.jpg',
+        category: 'Web',
+        title: 'Сайт по ремонту квартир',
+        description:
+          'Корпоративный сайт с современным дизайном, калькулятором стоимости услуг и адаптивной версткой.',
+        technologies: ['React 18', 'Vite', 'Swiper', 'HTML', 'CSS'],
+        demo: 'https://remont-apartment.vercel.app/',
+        code: 'https://github.com/regil2019/remont_apartment',
+        image: '/image/remont-apartment.png',
       },
       {
-        category: "ИИ",
-        title: "Интеллектуальная система чат-ботов",
-        description: "Многоязычная система чат-ботов с ответами на основе ИИ и интеграцией с различными платформами обмена сообщениями. Разработана во время моих исследований AI агентов.",
-        technologies: ["Node.js", "OpenAI API", "WebSockets", "MongoDB"],
-        demo: "Демо",
-        code: "Код",
-        image: '/image/chatbot-bg.jpg',
+        category: 'Web',
+        title: 'Современная E-commerce платформа',
+        description:
+          'Полнофункциональная e-commerce платформа с управлением товарами, админ-панелью и интеграцией платежей.',
+        technologies: ['React', 'Node.js', 'MySQL', 'Stripe', 'JavaScript'],
+        demo: 'https://ecommerce-platform-drab.vercel.app',
+        code: 'https://github.com/regil2019/ecommerce-platform.git',
+        image: '/image/ecommerce-bg.png',
       },
-      {
-        category: "Веб",
-        title: "Современный E-commerce",
-        description: "Полноценная платформа электронной коммерции с React, Node.js и PostgreSQL. Включает систему оплаты, управление продуктами и административную панель.",
-        technologies: ["React", "Node.js", "PostgreSQL", "Stripe", "TypeScript"],
-        demo: "Демо",
-        code: "Код",
-        image: '/image/'
-      }
-    ]
+    ],
   },
+
   skills: {
-    title: "Мои навыки",
-    subtitle: "Технологии и инструменты, которыми я владею и использую для создания эффективных и современных решений.",
-    frontend: "Фронтенд",
-    tools: "Инструменты",
-    backend: "Бэкенд",
+    title: 'Мои навыки',
+    subtitle:
+      'Технологии и инструменты, которые я использую для создания масштабируемых решений.',
+    frontend: 'Frontend',
+    backend: 'Backend',
+    tools: 'Инструменты',
     skills: [
-      { name: "React", percentage: 95 },
-      { name: "Next.js", percentage: 85 },
-      { name: "Git", percentage: 95 },
-      { name: "AWS", percentage: 75 },
-      { name: "TypeScript", percentage: 90 },
-      { name: "Tailwind CSS", percentage: 90 },
-      { name: "Vue.js", percentage: 85 },
-      { name: "Docker", percentage: 85 },
-      { name: "Node.js", percentage: 80 },
-      { name: "Python", percentage: 75 },
-      { name: "PostgreSQL", percentage: 70 },
-      { name: "MongoDB", percentage: 67 }
-    ]
+      { name: 'React', percentage: 70 },
+      { name: 'Next.js', percentage: 65 },
+      { name: 'TypeScript', percentage: 50 },
+      { name: 'Tailwind CSS', percentage: 60 },
+      { name: 'Node.js', percentage: 60 },
+      { name: 'Python', percentage: 55 },
+      { name: 'PostgreSQL', percentage: 50 },
+      { name: 'MongoDB', percentage: 50 },
+      { name: 'Git', percentage: 80 },
+      { name: 'Docker', percentage: 40 },
+      { name: 'CI/CD', percentage: 45 },
+      { name: 'AWS', percentage: 40 },
+    ],
   },
+
   contact: {
-    title: "Связаться со мной",
-    subtitle: "Заинтересованы в сотрудничестве? Давайте обсудим ваш следующий проект и как я могу помочь вам достичь ваших целей.",
-    infoTitle: "Контактная информация",
-    infoText: "Я всегда открыт для обсуждения рабочих возможностей, интересных проектов или просто обмена идеями о технологиях и ИИ.",
-    email: "Электронная почта",
-    phone: "Телефон",
-    location: "Местоположение",
-    whatsapp: "WhatsApp",
-    chatWithMe: "Связаться со мной",
-    formTitle: "Отправить сообщение",
-    name: "Имя *",
-    namePlaceholder: "ФИО",
-    emailPlaceholder: "ваш@email.com",
-    subject: "Тема *",
-    subjectPlaceholder: "Тема сообщения",
-    message: "Сообщение *",
-    messagePlaceholder: "Расскажите больше о вашем проекте или о том, как я могу помочь...",
-    send: "Отправить сообщение",
-    successMessage: "Сообщение успешно отправлено!",
-    errorMessage: "Пожалуйста, заполните все поля.",
+    title: 'Связаться со мной',
+    subtitle:
+      'Заинтересованы в сотрудничестве? Давайте обсудим ваш проект.',
+    infoTitle: 'Контактная информация',
+    infoText:
+      'Открыт для фриланса, сотрудничества и долгосрочных предложений.',
+    email: 'Email',
+    phone: 'Телефон',
+    location: 'Локация',
+    whatsapp: 'WhatsApp',
+    chatWithMe: 'Написать мне',
+    formTitle: 'Отправить сообщение',
+    name: 'Имя *',
+    namePlaceholder: 'Ваше полное имя',
+    emailPlaceholder: 'your@email.com',
+    subject: 'Тема *',
+    subjectPlaceholder: 'Тема сообщения',
+    message: 'Сообщение *',
+    messagePlaceholder:
+      'Расскажите о вашем проекте или чем я могу помочь...',
+    send: 'Отправить сообщение',
+    successMessage: 'Сообщение успешно отправлено!',
+    errorMessage: 'Пожалуйста, заполните все поля.',
   },
 
   footer: {
-    copyright: "Портфолио Regil. Все права защищены."
+    copyright: 'Портфолио Regil. Все права защищены.',
   },
-};
+}

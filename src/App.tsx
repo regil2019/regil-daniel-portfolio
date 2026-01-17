@@ -78,7 +78,7 @@ function App() {
       <SEO
         content={currentContent}
         currentLanguage={currentLanguage}
-        url="https://your-portfolio-url.com"
+        url="https://regil-daniel-portfolio.vercel.app/"
       />
       <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
         {/* Removed fixed dark mode toggle button to move it into Navbar */}
@@ -100,7 +100,7 @@ function App() {
           darkMode={darkMode}
           toggleDarkMode={() => setDarkMode(!darkMode)}
         />
-        <Hero content={currentContent.hero} />
+        <Hero content={currentContent.hero} currentLanguage={currentLanguage} />
         <About content={currentContent.about} />
         <Projects content={currentContent.projects} />
         <Skills content={currentContent.skills} />

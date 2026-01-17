@@ -11,7 +11,7 @@ interface NavbarProps {
   toggleDarkMode: () => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage, darkMode, toggleDarkMode }) => {
+const Navbar: React.FC<NavbarProps> = ({ content, currentLanguage, setLanguage, darkMode, toggleDarkMode }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -32,14 +32,39 @@ const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage, darkMode,
       <nav className="max-w-7xl mx-auto flex justify-between items-center p-4">
         <div className="flex items-center gap-4">
           {/* Language Switcher */}
-          <button
-            className="text-gray-700 dark:text-gray-400 hover:text-indigo-400 transition text-xl flex items-center gap-1"
-            onClick={() => setLanguage(currentLanguage === 'en' ? 'pt' : currentLanguage === 'pt' ? 'ru' : 'en')}
-            aria-label="Switch Language"
-          >
-            <FaGlobe />
-            <span className="text-sm font-medium">{currentLanguage.toUpperCase()}</span>
-          </button>
+          <div className="relative group">
+            <button
+              className="text-gray-700 dark:text-gray-400 hover:text-indigo-400 transition text-xl flex items-center gap-1"
+              aria-label="Switch Language"
+            >
+              <FaGlobe />
+              <span className="text-sm font-medium">{currentLanguage.toUpperCase()}</span>
+            </button>
+            {/* Language options dropdown */}
+            <div className="absolute top-full left-0 mt-2 w-24 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+              <button
+                onClick={() => setLanguage('pt')}
+                className={`w-full text-left px-3 py-2 text-sm flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition ${currentLanguage === 'pt' ? 'bg-indigo-100 dark:bg-indigo-900 font-semibold' : ''}`}
+              >
+                <span>🇵🇹</span>
+                <span>Português</span>
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`w-full text-left px-3 py-2 text-sm flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition ${currentLanguage === 'en' ? 'bg-indigo-100 dark:bg-indigo-900 font-semibold' : ''}`}
+              >
+                <span>🇺🇸</span>
+                <span>English</span>
+              </button>
+              <button
+                onClick={() => setLanguage('ru')}
+                className={`w-full text-left px-3 py-2 text-sm flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition ${currentLanguage === 'ru' ? 'bg-indigo-100 dark:bg-indigo-900 font-semibold' : ''}`}
+              >
+                <span>🇷🇺</span>
+                <span>Русский</span>
+              </button>
+            </div>
+          </div>
          
           {/* Dark Mode Toggle */}
           <button
@@ -50,26 +75,18 @@ const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage, darkMode,
             {darkMode ? <FaSun /> : <FaMoon />}
           </button>
         </div>
-        {/* Hamburger menu button for small screens */}
-        <button
-          className="text-gray-700 dark:text-gray-400 hover:text-indigo-400 transition duration-300 ease-in-out text-2xl md:hidden bg-white/30 dark:bg-black/30 backdrop-blur-sm rounded-md p-2"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
         {/* Menu for medium and larger screens */}
-        <ul className={`md:flex gap-8 items-center font-medium text-gray-900 dark:text-gray-200 ${menuOpen ? 'flex flex-col absolute top-16 left-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur border-b border-gray-200 dark:border-gray-800 md:static md:bg-transparent md:backdrop-blur-0 md:border-0' : 'hidden'}`}>
-          <li><a href="#home" className="block px-4 py-2 hover:text-indigo-400 transition">Home</a></li>
-          <li><a href="#about" className="block px-4 py-2 hover:text-indigo-400 transition">About</a></li>
-          <li><a href="#projects" className="block px-4 py-2 hover:text-indigo-400 transition">Projects</a></li>
-          <li><a href="#skills" className="block px-4 py-2 hover:text-indigo-400 transition">Skills</a></li>
-          <li><a href="#contact" className="block px-4 py-2 hover:text-indigo-400 transition">Contact</a></li>
+        <ul className={`md:flex gap-8 items-center font-medium text-gray-900 dark:text-gray-200 ${menuOpen ? 'flex flex-col absolute top-16 left-0 right-0 bg-white/90 dark:bg-black/90 backdrop-blur border-b border-gray-200 dark:border-gray-800 md:static md:bg-transparent md:backdrop-blur-0 md:border-0' : 'hidden'}`}>
+          <li><a href="#home" className="block px-4 py-2 hover:text-indigo-400 transition">{content.home}</a></li>
+          <li><a href="#about" className="block px-4 py-2 hover:text-indigo-400 transition">{content.about}</a></li>
+          <li><a href="#projects" className="block px-4 py-2 hover:text-indigo-400 transition">{content.projects}</a></li>
+          <li><a href="#skills" className="block px-4 py-2 hover:text-indigo-400 transition">{content.skills}</a></li>
+          <li><a href="#contact" className="block px-4 py-2 hover:text-indigo-400 transition">{content.contact}</a></li>
           {menuOpen && (
             <li className="px-4 py-2">
               <button
                 onClick={toggleDarkMode}
-                className="text-gray-700 dark:text-gray-400 hover:text-indigo-400 transition text-xl flex items-center gap-2"
+                className="text-gray-700 dark:text-gray-400 hover:text-indigo-400 transition text-base flex items-center gap-2"
                 aria-label="Toggle Dark Mode"
               >
                 {darkMode ? <FaSun /> : <FaMoon />}
@@ -78,7 +95,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage, darkMode,
             </li>
           )}
         </ul>
-        <div className="hidden md:flex gap-4 items-center">
+        <div className="flex gap-4 items-center">
           {/* Social Icons */}
           <a
             href="https://github.com/regil2019"
@@ -107,6 +124,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage, darkMode,
           >
             <FaWhatsapp />
           </a>
+          {/* Hamburger menu button for small screens */}
+          <button
+            className="text-gray-700 dark:text-gray-400 hover:text-indigo-400 transition duration-300 ease-in-out text-2xl md:hidden bg-white/30 dark:bg-black/30 backdrop-blur-sm rounded-md p-2"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </button>
         </div>
 
       </nav>
@@ -115,7 +140,3 @@ const Navbar: React.FC<NavbarProps> = ({ currentLanguage, setLanguage, darkMode,
 };
 
 export default Navbar;
-
-
-
-
