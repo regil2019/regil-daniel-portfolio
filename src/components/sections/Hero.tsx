@@ -18,7 +18,7 @@ const Hero = ({ content, currentLanguage }: Props) => {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center py-8 px-4 md:px-6 bg-gradient-to-br from-indigo-900 via-purple-900 to-black"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center pt-20 md:pt-8 pb-8 px-4 md:px-6 bg-gradient-to-br from-indigo-900 via-purple-900 to-black"
       aria-labelledby="hero-title"
       role="banner"
     >
