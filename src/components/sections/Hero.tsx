@@ -18,13 +18,14 @@ const Hero = ({ content, currentLanguage }: Props) => {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center py-8 px-6 bg-gradient-to-br from-indigo-900 via-purple-900 to-black"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center py-8 px-4 md:px-6 bg-gradient-to-br from-indigo-900 via-purple-900 to-black"
       aria-labelledby="hero-title"
       role="banner"
     >
       <div className="flex-1 flex flex-col justify-center items-start gap-6 pl-0 md:pl-16 md:mt-10">
-        <h1 id="hero-title" className="text-5xl md:text-6xl font-extrabold text-white mb-4">
-          {content.title}{' '}
+        <h1 id="hero-title" className="text-3xl md:text-6xl font-extrabold text-white mb-4 leading-tight max-w-sm">
+          {content.title}
+          <br />
           <span className="text-indigo-400">{content.subtitle}</span>
         </h1>
 
