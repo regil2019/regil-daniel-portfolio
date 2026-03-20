@@ -77,7 +77,7 @@ export const content: Content = {
           'Full-stack CRM system for cold-calling campaigns and lead tracking. Features real-time analytics and sales script management.',
         technologies: ['React 18', 'Node.js', 'PostgreSQL', 'Prisma', 'Redis'],
         demo: 'https://call-stream-crm.vercel.app/',
-        code: 'https://github.com/regil2019/CRM_SYSTEM.git',
+        code: 'https://github.com/regil2019/CallStream-CRM.git',
         image: '/image/ai-saas-bg.jpg',
       },
       {

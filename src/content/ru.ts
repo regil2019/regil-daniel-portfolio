@@ -77,7 +77,7 @@ export const content: Content = {
           'Полнофункциональная CRM-система для холодных звонков и отслеживания лидов. Включает аналитику в реальном времени и управление скриптами продаж.',
         technologies: ['React 18', 'Node.js', 'PostgreSQL', 'Prisma', 'Redis'],
         demo: 'https://call-stream-crm.vercel.app/',
-        code: 'https://github.com/regil2019/CRM_SYSTEM.git',
+        code: 'https://github.com/regil2019/CallStream-CRM.git',
         image: '/image/ai-saas-bg.jpg',
       },
       {
