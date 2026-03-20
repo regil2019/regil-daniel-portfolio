@@ -8,6 +8,7 @@ type Project = {
   demo: string;
   code: string;
   image: string;
+  featured?: boolean;
 };
 
 type ProjectsContent = {
@@ -34,7 +35,11 @@ const Projects = ({ content }: Props) => {
           {content.projects.map((project, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-gray-900 rounded-xl shadow-lg flex flex-col justify-between w-full max-w-sm border border-gray-200 dark:border-indigo-900 hover:border-indigo-500 transition overflow-hidden"
+              className={`bg-white dark:bg-gray-900 rounded-xl shadow-lg flex flex-col justify-between w-full max-w-sm border transition overflow-hidden ${
+                project.featured 
+                ? 'border-indigo-500 shadow-indigo-500/20 ring-1 ring-indigo-500/50' 
+                : 'border-gray-200 dark:border-indigo-900 hover:border-indigo-500'
+              }`}
             >
               {/* Imagem de fundo no topo do card */}
               <div className="h-48 w-full relative">
@@ -47,6 +52,11 @@ const Projects = ({ content }: Props) => {
                   height="200"
                 />
                 <div className="absolute inset-0 bg-black/20 dark:bg-black/40" />
+                {project.featured && (
+                  <div className="absolute top-4 left-4 bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10">
+                    FEATURED
+                  </div>
+                )}
               </div>
               <div className="p-6 flex flex-col flex-1">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>

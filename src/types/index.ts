@@ -37,6 +37,7 @@ export type Project = {
   demo: string;
   code: string;
   image: string;
+  featured?: boolean;
 };
 
 export type ProjectsContent = {

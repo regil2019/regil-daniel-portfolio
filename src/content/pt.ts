@@ -61,6 +61,27 @@ export const content: Content = {
     projects: [
       {
         category: 'Web',
+        title: 'Plataforma de E-commerce Moderna',
+        featured: true,
+        description:
+          'Plataforma completa de e-commerce com gestão de produtos, painel administrativo e integração de pagamentos.',
+        technologies: ['React', 'Node.js', 'MySQL', 'Stripe', 'JavaScript'],
+        demo: 'https://ecommerce-platform-drab.vercel.app',
+        code: 'https://github.com/regil2019/ecommerce-platform.git',
+        image: '/image/ecommerce-bg.png',
+      },
+      {
+        category: 'Web',
+        title: 'Sistema de Vendas CRM',
+        description:
+          'Sistema CRM Full-stack para campanhas de cold-calling e acompanhamento de leads. Inclui análises em tempo real e gestão de scripts de vendas.',
+        technologies: ['React 18', 'Node.js', 'PostgreSQL', 'Prisma', 'Redis'],
+        demo: 'https://call-stream-crm.vercel.app/',
+        code: 'https://github.com/regil2019/CRM_SYSTEM.git',
+        image: '/image/ai-saas-bg.jpg',
+      },
+      {
+        category: 'Web',
         title: 'Website de Remodelação de Apartamentos',
         description:
           'Website empresarial com design moderno, calculadora de custos de serviços e layout totalmente responsivo.',
@@ -68,16 +89,6 @@ export const content: Content = {
         demo: 'https://remont-apartment.vercel.app/',
         code: 'https://github.com/regil2019/remont_apartment',
         image: '/image/remont-apartment.png',
-      },
-      {
-        category: 'Web',
-        title: 'Plataforma de E-commerce Moderna',
-        description:
-          'Plataforma completa de e-commerce com gestão de produtos, painel administrativo e integração de pagamentos.',
-        technologies: ['React', 'Node.js', 'MySQL', 'Stripe', 'JavaScript'],
-        demo: 'https://ecommerce-platform-drab.vercel.app',
-        code: 'https://github.com/regil2019/ecommerce-platform.git',
-        image: '/image/ecommerce-bg.png',
       },
     ],
   },
@@ -95,6 +106,8 @@ export const content: Content = {
       { name: 'TypeScript', percentage: 50 },
       { name: 'Tailwind CSS', percentage: 60 },
       { name: 'Node.js', percentage: 60 },
+      { name: 'Prisma', percentage: 55 },
+      { name: 'Redis', percentage: 45 },
       { name: 'Python', percentage: 55 },
       { name: 'PostgreSQL', percentage: 50 },
       { name: 'MongoDB', percentage: 50 },

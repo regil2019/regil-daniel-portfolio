@@ -61,6 +61,27 @@ export const content: Content = {
     projects: [
       {
         category: 'Web',
+        title: 'Modern E-commerce Platform',
+        featured: true,
+        description:
+          'Complete e-commerce platform with product management, admin panel, and payment integration.',
+        technologies: ['React', 'Node.js', 'MySQL', 'Stripe', 'JavaScript'],
+        demo: 'https://ecommerce-platform-drab.vercel.app',
+        code: 'https://github.com/regil2019/ecommerce-platform.git',
+        image: '/image/ecommerce-bg.png',
+      },
+      {
+        category: 'Web',
+        title: 'Sales CRM System',
+        description:
+          'Full-stack CRM system for cold-calling campaigns and lead tracking. Features real-time analytics and sales script management.',
+        technologies: ['React 18', 'Node.js', 'PostgreSQL', 'Prisma', 'Redis'],
+        demo: 'https://call-stream-crm.vercel.app/',
+        code: 'https://github.com/regil2019/CRM_SYSTEM.git',
+        image: '/image/ai-saas-bg.jpg',
+      },
+      {
+        category: 'Web',
         title: 'Apartment Remodeling Website',
         description:
           'Business website with modern UI, service cost calculator, and fully responsive design.',
@@ -68,16 +89,6 @@ export const content: Content = {
         demo: 'https://remont-apartment.vercel.app/',
         code: 'https://github.com/regil2019/remont_apartment',
         image: '/image/remont-apartment.png',
-      },
-      {
-        category: 'Web',
-        title: 'Modern E-commerce Platform',
-        description:
-          'Complete e-commerce platform with product management, admin panel, and payment integration.',
-        technologies: ['React', 'Node.js', 'MySQL', 'Stripe', 'JavaScript'],
-        demo: 'https://ecommerce-platform-drab.vercel.app',
-        code: 'https://github.com/regil2019/ecommerce-platform.git',
-        image: '/image/ecommerce-bg.png',
       },
     ],
   },
@@ -95,6 +106,8 @@ export const content: Content = {
       { name: 'TypeScript', percentage: 50 },
       { name: 'Tailwind CSS', percentage: 60 },
       { name: 'Node.js', percentage: 60 },
+      { name: 'Prisma', percentage: 55 },
+      { name: 'Redis', percentage: 45 },
       { name: 'Python', percentage: 55 },
       { name: 'PostgreSQL', percentage: 50 },
       { name: 'MongoDB', percentage: 50 },
